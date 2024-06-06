@@ -1,6 +1,4 @@
-# Checking for, and cleaning, dirty data
-
-# Checking for duplicates in the film table
+-- Checking for duplicates in the film table
 SELECT film_id,
        title,
        description,
@@ -30,7 +28,7 @@ GROUP BY film_id,
          fulltext
 HAVING COUNT(*) > 1;
 
-# Checking for missing values in the film table
+-- Checking for missing values in the film table
 SELECT *
 FROM film
 WHERE film_id IS NULL
@@ -47,9 +45,9 @@ WHERE film_id IS NULL
   AND special_features IS NULL
   AND fulltext IS NULL;
 
-or
 
-# Using coalesce function
+
+-- Using coalesce function
 SELECT *
 FROM film
 WHERE COALESCE(
@@ -68,7 +66,7 @@ WHERE COALESCE(
     fulltext
 ) IS NULL;
 
-# Checking for non-uniform data in the title column of film table
+-- Checking for non-uniform data in the title column of film table
 SELECT 
     LOWER(title) AS standardized_title,
     COUNT(*) AS frequency
