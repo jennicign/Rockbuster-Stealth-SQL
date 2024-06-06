@@ -1,0 +1,82 @@
+# Checking for, and cleaning, dirty data
+
+# Checking for duplicates in the film table
+SELECT film_id,
+       title,
+       description,
+       release_year,
+       language_id,
+       rental_duration,
+       rental_rate,
+       length,
+       replacement_cost,
+       rating,
+       last_update,
+       special_features,
+       fulltext
+FROM film
+GROUP BY film_id,
+         title,
+         description,
+         release_year,
+         language_id,
+         rental_duration,
+         rental_rate,
+         length,
+         replacement_cost,
+         rating,
+         last_update,
+         special_features,
+         fulltext
+HAVING COUNT(*) > 1;
+
+# Checking for missing values in the film table
+SELECT *
+FROM film
+WHERE film_id IS NULL
+  AND title IS NULL
+  AND description IS NULL
+  AND release_year IS NULL
+  AND language_id IS NULL
+  AND rental_duration IS NULL
+  AND rental_rate IS NULL
+  AND length IS NULL
+  AND replacement_cost IS NULL
+  AND rating IS NULL
+  AND last_update IS NULL
+  AND special_features IS NULL
+  AND fulltext IS NULL;
+
+or
+
+# Using coalesce function
+SELECT *
+FROM film
+WHERE COALESCE(
+    film_id,
+    title,
+    description,
+    release_year,
+    language_id,
+    rental_duration,
+    rental_rate,
+    length,
+    replacement_cost,
+    rating,
+    last_update,
+    special_features,
+    fulltext
+) IS NULL;
+
+# Checking for non-uniform data in the title column of film table
+SELECT 
+    LOWER(title) AS standardized_title,
+    COUNT(*) AS frequency
+FROM 
+    film
+GROUP BY 
+    LOWER(title)
+HAVING 
+    COUNT(*) > 1
+ORDER BY 
+    frequency DESC;
