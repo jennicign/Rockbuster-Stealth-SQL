@@ -1,5 +1,5 @@
 # Rockbuster-Stealth-SQL
-In this project, I analyzed Rockbuster Stealth's data using PostgreSQL to answer key business queries, identify top-performing movies, map customer geography, and compare regional sales. I also created a presentation for business managers, compiled an Excel file with SQL queries and data outputs for technical colleagues, and prepared a data dictionary.
+In this project, I analyzed Rockbuster Stealth's data using PostgreSQL and Tableau to answer key business queries, identify top-performing movies, map customer geography, and compare regional sales. I also created a presentation for business managers, compiled an Excel file with SQL queries and data outputs for technical colleagues, and prepared a data dictionary.
 
 ## Objective
 <img src="https://cdni.iconscout.com/illustration/premium/thumb/live-streaming-service-5513844-4603371.png?f=webp" width="220">
