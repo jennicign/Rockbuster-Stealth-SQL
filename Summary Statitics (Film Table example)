@@ -1,5 +1,5 @@
-# Summarizing numerical data
-# Querying summary statistics for numerical columns in film table
+-- Summarizing numerical data
+-- Create summary statistics for numerical columns in film table
 SELECT 
     MIN(release_year) AS min_release_year,
     MAX(release_year) AS max_release_year,
@@ -19,8 +19,8 @@ SELECT
 FROM 
     film;
 
-# Summarizing non-numerical data
-# Querying modes for qualitaive columns in film table
+-- Summarizing non-numerical data
+-- Find modes for qualitaive columns in film table
 SELECT
     MODE() WITHIN GROUP (ORDER BY film_id) AS modal_film_id, 
     MODE() WITHIN GROUP (ORDER BY title) AS modal_title,
